@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Економічна безпека Словаччини | Неволіна Владислава</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">ДТЕУ · ФМТП</span>
+        <span class="brand-title">Економічна безпека країни</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Відкрити меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" class="nav-link">Про автора</a>
+        <a href="slovakia.html" class="nav-link active">Економічна безпека Словаччини</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="page-header">
+      <div class="container">
+        <div class="eyebrow">Аналітичний звіт · Період дослідження: 2015–2025 рр.</div>
+        <h1>Економічна безпека Словацької Республіки</h1>
+        <p class="page-lead">
+          Комплексне оцінювання стану економічної безпеки держави за 9 функціональними складовими
+          та 40 статистичними індикаторами з порівнянням із пороговими нормативами.
+        </p>
+      </div>
+    </section>
+
+    <!-- 1. Загальна інформація про країну -->
+    <section class="section">
+      <div class="container">
+        <h2>1. Загальна інформація про країну</h2>
+        <div class="country-overview">
+          <div class="content-card">
+            <p>
+              <strong>Словацька Республіка</strong> — індустріально-аграрна держава Центральної Європи,
+              член Європейського Союзу (з 2004 р.), Єврозони (з 2009 р.), ОЕСР та НАТО. Економічна
+              модель країни характеризується високим ступенем відкритості, глибокою інтеграцією у
+              європейські виробничі ланцюги (насамперед в автомобілебудуванні, електроніці та
+              машинобудуванні) та значною залежністю від зовнішньої кон’юнктури й імпорту енергоносіїв.
+            </p>
+            <p>
+              Упродовж 2015–2025 рр. економіка Словаччини пройшла етап стабільного зростання
+              (2015–2019 рр.), пандемічного шоку COVID-19 (2020–2021 рр.) та енергетично-інфляційної
+              кризи (2022–2023 рр.), що суттєво вплинуло на баланс між соціально-демографічною
+              стійкістю та фінансово-інвестиційною вразливістю держави.
+            </p>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <span class="kpi-label">Чисельність населення (2025)</span>
+              <span class="kpi-value">5,41 млн</span>
+              <span class="kpi-note">Спад із 5,46 млн у 2020 р.</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Валюта та інтеграція</span>
+              <span class="kpi-value">Євро (EUR)</span>
+              <span class="kpi-note">Член ЄС та Єврозони</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Відкритість економіки</span>
+              <span class="kpi-value">181,84% ВВП</span>
+              <span class="kpi-note">Середнє за 2016–2025 рр.</span>
+            </div>
+            <div class="kpi-box kpi-warning">
+              <span class="kpi-label">Інтегральний бал безпеки</span>
+              <span class="kpi-value">3,64 / 6,00</span>
+              <span class="kpi-note">Незадовільний рівень</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Основні показники та порівняння з пороговими значеннями -->
+    <section class="section section-muted">
+      <div class="container">
+        <h2>2. Основні показники економічної безпеки та порогові значення</h2>
+        <p class="section-desc">
+          Нижче наведено ключові індикатори макроекономічної, фінансової, зовнішньоекономічної,
+          енергетичної, інвестиційної, соціальної та продовольчої безпеки Словаччини за останнє
+          десятиліття у зіставленні з методичними пороговими інтервалами.
+        </p>
+
+        <div class="filter-bar">
+          <label for="statusFilter">Фільтр за рівнем безпеки:</label>
+          <select id="statusFilter" class="filter-select">
+            <option value="all">Усі показники (12 ключових індикаторів)</option>
+            <option value="optimal">Оптимальний та задовільний</option>
+            <option value="unsatisfactory">Незадовільний та небезпечний</option>
+            <option value="critical">Критичний та абсолютно небезпечний</option>
+          </select>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table" id="indicatorsTable">
+            <thead>
+              <tr>
+                <th>Складова безпеки</th>
+                <th>Індикатор</th>
+                <th>Середнє за 10 р.</th>
+                <th>Останнє значення</th>
+                <th>Оптимальний поріг</th>
+                <th>Рівень безпеки</th>
+                <th>Тренд</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-level="unsatisfactory">
+                <td>Макроекономічна</td>
+                <td>Рівень інфляції, %</td>
+                <td>4,11%</td>
+                <td>4,00% (2025)</td>
+                <td>[1; 3]%</td>
+                <td><span class="badge badge-warn">Незадовільний</span></td>
+                <td>Негативний</td>
+              </tr>
+              <tr data-level="unsatisfactory">
+                <td>Макроекономічна</td>
+                <td>Рівень безробіття, % робочої сили</td>
+                <td>6,64%</td>
+                <td>5,36% (2025)</td>
+                <td>[4; 5]%</td>
+                <td><span class="badge badge-warn">Незадовільний</span></td>
+                <td>Позитивний (спад)</td>
+              </tr>
+              <tr data-level="unsatisfactory">
+                <td>Макроекономічна</td>
+                <td>Сальдо поточного рахунку, % ВВП</td>
+                <td>–3,43%</td>
+                <td>–3,63% (2025)</td>
+                <td>[–1; +2]%</td>
+                <td><span class="badge badge-warn">Незадовільний</span></td>
+                <td>Негативний</td>
+              </tr>
+              <tr data-level="optimal">
+                <td>Макроекономічна</td>
+                <td>Розмір тіньової економіки, % ВВП</td>
+                <td>13,61%</td>
+                <td>13,06% (2022)</td>
+                <td>≤ 13%</td>
+                <td><span class="badge badge-good">Задовільний</span></td>
+                <td>Позитивний (спад)</td>
+              </tr>
+              <tr data-level="critical">
+                <td>Фінансова</td>
+                <td>Борг центрального уряду, % ВВП</td>
+                <td>59,51%</td>
+                <td>64,04% (2024)</td>
+                <td>≤ 40% (Маастрихт ≤ 60%)</td>
+                <td><span class="badge badge-danger">Критичний</span></td>
+                <td>Негативний (ріст)</td>
+              </tr>
+              <tr data-level="critical">
+                <td>Фінансова</td>
+                <td>Валові міжнародні резерви, міс. імпорту</td>
+                <td>0,93 міс.</td>
+                <td>1,54 міс. (2025)</td>
+                <td>≥ 3,0 міс.</td>
+                <td><span class="badge badge-danger">Абс. небезпечний</span></td>
+                <td>Позитивний (ріст)</td>
+              </tr>
+              <tr data-level="critical">
+                <td>Зовнішньоекономічна</td>
+                <td>Відкритість економіки (експорт+імпорт), % ВВП</td>
+                <td>181,84%</td>
+                <td>170,34% (2025)</td>
+                <td>≤ 70%</td>
+                <td><span class="badge badge-danger">Абс. небезпечний</span></td>
+                <td>Позитивний (спад)</td>
+              </tr>
+              <tr data-level="optimal">
+                <td>Зовнішньоекономічна</td>
+                <td>Коефіцієнт покриття експортом імпорту, разів</td>
+                <td>1,001</td>
+                <td>0,998 (2025)</td>
+                <td>[1,00; 1,20]</td>
+                <td><span class="badge badge-good">Оптимальний</span></td>
+                <td>Слабкий спад</td>
+              </tr>
+              <tr data-level="critical">
+                <td>Енергетична</td>
+                <td>Власне забезпечення енергоносіями, %</td>
+                <td>40,54%</td>
+                <td>46,95% (2024)</td>
+                <td>≥ 70%</td>
+                <td><span class="badge badge-danger">Критичний</span></td>
+                <td>Позитивний (ріст)</td>
+              </tr>
+              <tr data-level="critical">
+                <td>Інвестиційно-інноваційна</td>
+                <td>Чистий приріст ПІІ до ВВП, %</td>
+                <td>2,46%</td>
+                <td>1,33% (2025)</td>
+                <td>≥ 6%</td>
+                <td><span class="badge badge-danger">Абс. небезпечний</span></td>
+                <td>Негативний</td>
+              </tr>
+              <tr data-level="optimal">
+                <td>Соціальна</td>
+                <td>Частка населення за межею крайньої бідності, %</td>
+                <td>0,63%</td>
+                <td>0,50% (2023)</td>
+                <td>[0; 3]%</td>
+                <td><span class="badge badge-good">Оптимальний</span></td>
+                <td>Позитивний (спад)</td>
+              </tr>
+              <tr data-level="critical">
+                <td>Продовольча</td>
+                <td>Самозабезпеченість м’ясом (свинина), %</td>
+                <td>29,66%</td>
+                <td>23,48% (2023)</td>
+                <td>≥ 80%</td>
+                <td><span class="badge badge-danger">Абс. небезпечний</span></td>
+                <td>Негативний (спад)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Графіки та динаміка показників -->
+    <section class="section">
+      <div class="container">
+        <h2>3. Динаміка показників та порівняльна оцінка складових (2016–2025 рр.)</h2>
+        <p class="section-desc">
+          Інтерактивні графіки демонструють ключові макроекономічні тренди Словацької Республіки
+          за останнє десятиліття та узагальнену оцінку 9 складових економічної безпеки за 6-бальною шкалою.
+        </p>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Динаміка інфляції, безробіття та сальдо поточного рахунку (2016–2025 рр.)</h3>
+            <div class="chart-box">
+              <canvas id="macroChart"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3>Динаміка боргу центрального уряду (% ВВП, 2015–2024 рр.)</h3>
+            <div class="chart-box">
+              <canvas id="debtChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card chart-full">
+          <h3>Інтегральна оцінка 9 складових економічної безпеки Словаччини (шкала 1–6)</h3>
+          <p class="chart-sub">
+            1 — абсолютно небезпечний рівень, 2 — критичний, 3 — небезпечний,
+            4 — незадовільний, 5 — задовільний, 6 — оптимальний.
+          </p>
+          <div class="chart-box chart-box-wide">
+            <canvas id="componentsChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Аналіз динаміки за 10 років -->
+    <section class="section section-muted">
+      <div class="container">
+        <h2>4. Аналіз динаміки показників за останні 10 років</h2>
+        <div class="two-col-grid">
+          <div class="content-card">
+            <h3>Позитивні структурні зрушення</h3>
+            <ul class="styled-list">
+              <li>
+                <strong>Оздоровлення ринку праці:</strong> рівень безробіття послідовно знизився
+                майже вдвічі — з 9,68% у 2016 р. до 5,30–5,36% у 2024–2025 рр.
+              </li>
+              <li>
+                <strong>Енергетична модернізація:</strong> енергоємність ВВП зменшилася з 4,78 до
+                3,83 МДж/дол. США, частка ВДЕ зросла до 17,9%, а власна забезпеченість енергоносіями
+                відновилася з 30,53% (2019) до 46,95% (2024).
+              </li>
+              <li>
+                <strong>Соціальна стійкість і детінізація:</strong> крайня бідність скоротилася до
+                0,5%, розмір тіньової економіки знизився з 15,0% до 13,06% ВВП, а кількість дослідників
+                R&amp;D зросла з 2724 до 3507 осіб на 1 млн населення.
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-card">
+            <h3>Негативні тенденції та шоки 2020–2025 рр.</h3>
+            <ul class="styled-list">
+              <li>
+                <strong>Борговий сплеск:</strong> після скорочення держборгу до 52,70% ВВП у 2019 р.
+                пандемія та енергокриза спричинили його зростання до 65,31% у 2021 р. та 64,04% у 2024 р.
+              </li>
+              <li>
+                <strong>Інфляційна хвиля 2022–2023 рр.:</strong> після цінової стабільності 2016–2020 рр.
+                інфляція сягнула 12,77% (2022) і 10,53% (2023), стабілізувавшись на рівні 4,00% у 2025 р.
+              </li>
+              <li>
+                <strong>Поглиблення продовольчого дефіциту:</strong> самозабезпеченість свининою впала
+                з 37,28% до 23,48%, картоплею — з 64,86% до 42,37%, молоком — з 69,89% до 51,53%.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Основні загрози -->
+    <section class="section">
+      <div class="container">
+        <h2>5. Основні загрози економічній безпеці Словацької Республіки</h2>
+        <div class="threats-grid">
+          <article class="threat-card">
+            <span class="threat-num">01</span>
+            <h3>Надмірна відкритість економіки</h3>
+            <p>
+              Зовнішньоторговельна квота у 181,84% ВВП та вузька спеціалізація на автопромі роблять
+              країну надзвичайно чутливою до рецесії та коливань попиту в країнах ЄС.
+            </p>
+          </article>
+          <article class="threat-card">
+            <span class="threat-num">02</span>
+            <h3>Фіскальний тиск і низькі резерви</h3>
+            <p>
+              Зростання боргу центрального уряду до 64,04% ВВП при валових міжнародних резервах лише
+              0,93 міс. імпорту обмежує фінансовий буфер держави під час зовнішніх шоків.
+            </p>
+          </article>
+          <article class="threat-card">
+            <span class="threat-num">03</span>
+            <h3>Імпортозалежність у продовольчому секторі</h3>
+            <p>
+              Критично низьке власне виробництво м’яса (29,66%), олії (35,48%), картоплі (56,73%) та
+              молока (58,71%) створює ризики цінової нестабільності на внутрішньому ринку.
+            </p>
+          </article>
+          <article class="threat-card">
+            <span class="threat-num">04</span>
+            <h3>Дефіцит ПІІ та інвестицій у R&amp;D</h3>
+            <p>
+              Низький чистий приріст ПІІ (2,46% ВВП) і витрат на дослідження та розробки (0,91% ВВП)
+              уповільнюють технологічне оновлення та закріплюють ризик «пастки середніх доходів».
+            </p>
+          </article>
+          <article class="threat-card">
+            <span class="threat-num">05</span>
+            <h3>Зовнішня енергетична залежність</h3>
+            <p>
+              Попри позитивну динаміку, майже 53–60% енергоресурсів імпортується, що зберігає
+              чутливість промисловості до світових цін на енергоносії.
+            </p>
+          </article>
+          <article class="threat-card">
+            <span class="threat-num">06</span>
+            <h3>Демографічне старіння населення</h3>
+            <p>
+              Зростання частки осіб віком 65+ до 19,04% та демографічного навантаження до 52,92%
+              посилює тиск на пенсійну систему, медицину та ринок праці.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Загальний висновок -->
+    <section class="section section-muted">
+      <div class="container">
+        <div class="conclusion-box">
+          <h2>6. Загальний висновок щодо стану економічної безпеки</h2>
+          <p>
+            За результатами комплексного оцінювання 40 індикаторів за дев’ятьма складовими загальний
+            стан економічної безпеки Словацької Республіки визначено як
+            <strong>незадовільний із наближенням до небезпечного (3,64 бала з 6,00)</strong>.
+            Економіка країни демонструє асиметричну структуру: найстійкішими ланками є
+            <strong>соціальна (4,50)</strong>, <strong>демографічна (5,00)</strong> та
+            <strong>виробнича (5,00)</strong> складові, тоді як найуразливішими залишаються
+            <strong>фінансова (1,50)</strong>, <strong>продовольча (2,50)</strong> та
+            <strong>інвестиційно-інноваційна (3,00)</strong> безпеки.
+          </p>
+          <p>
+            Попри те, що 24 із 40 показників мають позитивні багаторічні тренди (зниження безробіття,
+            тіньової економіки та енергоємності), зміцнення економічної безпеки Словаччини потребує
+            бюджетної консолідації, стимулювання внутрішнього агропродовольчого виробництва,
+            нарощування витрат на R&amp;D і диверсифікації експорту.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Джерела статистичних даних -->
+    <section class="section">
+      <div class="container">
+        <h2>7. Посилання на джерела статистичних даних</h2>
+        <ul class="sources-list">
+          <li>
+            <strong>World Bank Open Data (Світовий банк):</strong> макроекономічні показники,
+            інфляція, безробіття, державний борг, валові заощадження, витрати на R&amp;D та ПІІ —
+            <a href="https://data.worldbank.org/country/slovak-republic" target="_blank" rel="noopener noreferrer">
+              https://data.worldbank.org/country/slovak-republic
+            </a>
+          </li>
+          <li>
+            <strong>Eurostat (Статистична служба Європейського Союзу):</strong> енергетичний баланс,
+            частка відновлюваної енергії, демографічні та соціальні індикатори ЄС —
+            <a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener noreferrer">
+              https://ec.europa.eu/eurostat
+            </a>
+          </li>
+          <li>
+            <strong>International Monetary Fund (Міжнародний валютний фонд):</strong> платіжний баланс,
+            міжнародні резерви та фіскальна статистика Словаччини —
+            <a href="https://www.imf.org/en/Countries/SVK" target="_blank" rel="noopener noreferrer">
+              https://www.imf.org/en/Countries/SVK
+            </a>
+          </li>
+          <li>
+            <strong>OECD Data (Організація економічного співробітництва та розвитку):</strong>
+            показники продуктивності, інновацій та ринку праці Словацької Республіки —
+            <a href="https://data.oecd.org/slovak-republic.htm" target="_blank" rel="noopener noreferrer">
+              https://data.oecd.org/slovak-republic.htm
+            </a>
+          </li>
+          <li>
+            <strong>FAOSTAT (Продовольча та сільськогосподарська організація ООН):</strong>
+            баланси виробництва, імпорту, експорту та споживання основних продуктів харчування —
+            <a href="https://www.fao.org/faostat/en/#country/199" target="_blank" rel="noopener noreferrer">
+              https://www.fao.org/faostat/en/#country/199
+            </a>
+          </li>
+          <li>
+            <strong>Štatistický úrad Slovenskej republiky (Статистичне управління Словацької Республіки):</strong>
+            національні макроекономічні та галузеві статистичні ряди —
+            <a href="https://slovak.statistics.sk" target="_blank" rel="noopener noreferrer">
+              https://slovak.statistics.sk
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Неволіна Владислава Едуардівна</strong> · ДТЕУ, ФМТП, 1 курс, 23 група
+      </div>
+      <div>
+        Контакт: <a href="mailto:vladanevolina4@gmail.com">vladanevolina4@gmail.com</a> · © 2026 рік
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
